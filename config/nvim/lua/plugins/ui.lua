@@ -2,7 +2,15 @@ return {
   {
     "folke/noice.nvim",
     opts = function(_, opts)
-      opts.presets.lsp_doc_border = true
+      opts.presets.lsp_doc_border = true -- Add border to lsp hoverdoc
+      table.insert(opts.routes, {
+        -- Supress "No information available" messages for lsp hoverdoc
+        filter = {
+          event = "notify",
+          find = "No information available",
+        },
+        opts = { skip = true },
+      })
     end,
   },
   {
