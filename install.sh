@@ -79,7 +79,9 @@ copy_configs() {
 
 # Function to install config files and its dependencies
 install_dotfiles() {
-	install_dependencies
+	if [ "$skip_dependencies" = false ]; then
+		install_dependencies
+	fi
 
 	cd home
 	for item in $(ls -A); do
@@ -99,15 +101,21 @@ install_dotfiles() {
 	echo "Done!"
 }
 
-# Check for -y flag to skip y/N prompts
-force_yes=false
-while getopts "y" opt; do
-	case ${opt} in
-	y)
+force_yes=false         # -y flag to skip y/N prompts
+skip_dependencies=false # -sd flag to skip dependencies check-installation
+
+while :; do
+	case "$1" in
+	-y)
 		force_yes=true
+		shift
 		;;
-	\?)
-		echo "Invalid option: -$OPTARG" >&2
+	-sd)
+		skip_dependencies=true
+		shift
+		;;
+	-*)
+		echo "Unknown option: $1"
 		exit 1
 		;;
 	esac

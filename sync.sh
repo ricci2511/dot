@@ -6,7 +6,7 @@ if [ $(git rev-list HEAD..origin/main --count) -gt 0 ]; then
 	echo "Pulling changes"
 	git pull
 	echo "Running install.sh"
-	./install.sh
+	./install.sh -y -sd
 else
 	echo "Everything is up to date."
 	exit 0
