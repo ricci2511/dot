@@ -1,9 +1,10 @@
 #!/bin/bash
 
-git pull origin main
+git fetch origin main
 
-if [ $? -eq 0 ]; then
-	exit 0
+if [ "$(git rev-list HEAD..origin/main --count)" -gt 0 ]; then
+	git pull
+	./install.sh -y
+else
+	echo "Dotfiles are already up to date."
 fi
-
-./install.sh -y
