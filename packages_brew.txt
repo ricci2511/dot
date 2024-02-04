@@ -1,0 +1,7 @@
+neovim
+tmux
+lazygit
+ripgrep
+fd
+starship
+font-fira-code-nerd-font

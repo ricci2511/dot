@@ -1,108 +1,51 @@
 #!/bin/bash
 
-# Function to prompt for overwriting a config file
-prompt_overwrite() {
-	read -r -p "Config for $1 already exists. Overwrite? [y/N] " response
-	case "$response" in
-	[yY])
-		return 0 # Overwrite
-		;;
-	*)
-		return 1 # Skip
-		;;
-	esac
-}
-
-# Function to check and install Homebrew on macOS
-install_homebrew() {
-	if ! command -v brew &>/dev/null; then
-		echo "Homebrew not found. Installing..."
-		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-	else
-		echo "Homebrew is already installed."
-	fi
-}
-
-# List of common dependencies between pacman and brew
-dependencies="neovim tmux lazygit ripgrep fd starship"
-
-# Appends brew specific package names to dependencies
-add_macos_dependencies() {
-	dependencies+=" font-fira-code-nerd-font"
-}
-
-# Appends pacman specific package names to dependencies
-add_arch_dependencies() {
-	dependencies+=" ttf-fira-code-nerd-fonts"
-}
-
-install_dependencies() {
-	local install_prefix=""
-
-	if [ "$(uname)" == "Darwin" ]; then
-		install_homebrew
-		install_prefix="brew install -q"
-		add_macos_dependencies
-	elif [ -f /etc/arch-release ]; then
-		install_prefix="sudo pacman -S"
-		add_arch_dependencies
-	else
-		echo "Skipping dependencies installation, only supported on macOS and Arch Linux"
-		return
-	fi
-
-	eval "$install_prefix $dependencies"
-}
-
-copy_configs() {
-	local item=$1
+create_symlink() {
+	local source=$1
 	local target=$2
+	local item=$(basename "$source")
 
-	if [ -e "$target/$item" ]; then
-		if [ "$force_yes" = true ]; then
-			overwrite=0
+	if [ -e "$target" ] || [ -L "$target" ]; then
+		if [ -d "$source" ]; then
+			echo "Replacing existing $target/$item directory with symlink..."
+			rm -rf "$target/$item"
 		else
-			prompt_overwrite "$item"
-			overwrite=$?
+			if [ -f "$target" ]; then
+				echo "Overwriting existing $target file with symlink..."
+			else
+				echo "Overwriting existing $target/$item file with symlink..."
+			fi
 		fi
-		if [ "$overwrite" -eq 0 ]; then
-			echo "Overwriting $item config..."
-			cp -r "$item" "$target"
-		else
-			echo "Skipping $item config..."
-		fi
+
+		ln -sf "$source" "$target"
 	else
-		echo "Installing $item config..."
-		cp -r "$item" "$target"
+		echo "Creating symlink: $target/$item..."
+		ln -s "$source" "$target"
 	fi
 }
 
-# Function to install config files and its dependencies
+# Symlinks all dotfiles to proper location
 install_dotfiles() {
-	if [ "$skip_dependencies" = false ]; then
-		install_dependencies
-	fi
+	local exclude_pattern="^(LICENSE|\.git|\.gitignore|\.DS_Store|.*\.txt|.*\.sh)$"
 
-	cd home
-	for item in $(ls -A); do
-		if [ -d "$item" ] && [ "$item" == "config" ]; then
-			# Everything at config dir goes to ~/.config
-			cd "$item"
+	ls -A | grep -Ev "$exclude_pattern" | while IFS= read -r item; do
+		if [ -d "$item" ] && [ "$item" == ".config" ]; then
+			# Everything in .config is symlinked to ~/.config
+			cd $item
 			for config_item in $(ls -A); do
-				copy_configs "$config_item" "$HOME/.config/"
+				create_symlink "$PWD/$config_item" "$HOME/.config"
 			done
 			cd ..
 		elif [ -f "$item" ]; then
-			# Files at root go to ~/
-			copy_configs "$item" "$HOME"
+			# Files at root are symlinked to ~/
+			create_symlink "$PWD/$item" "$HOME/$item"
 		fi
 	done
 
 	echo "Done!"
 }
 
-force_yes=false         # -y flag to skip y/N prompts
-skip_dependencies=false # -sd flag to skip dependencies check-installation
+force_yes=false # -y flag to skip warning prompt
 
 while :; do
 	case "$1" in
@@ -110,15 +53,26 @@ while :; do
 		force_yes=true
 		shift
 		;;
-	-sd)
-		skip_dependencies=true
-		shift
-		;;
 	-*)
 		echo "Unknown option: $1"
 		exit 1
 		;;
+	*)
+		break
+		;;
 	esac
 done
 
-install_dotfiles
+if [ "$force_yes" = false ]; then
+	read -r -p "This may overwrite existing config files. Continue? [y/N] " response
+	case "$response" in
+	[yY])
+		install_dotfiles
+		;;
+	*)
+		echo "Aborted."
+		;;
+	esac
+else
+	install_dotfiles
+fi
