@@ -1,16 +1,18 @@
 # dot
 
-This repository contains my personal dotfiles and configurations for various tools and applications. It serves as a flexible template for managing dotfiles using symlinks and straightforward shell scripts.
+This repository contains my personal dotfiles and configurations for various tools and applications.
+
+It also serves as a flexible template for managing dotfiles using symlinks and straightforward shell scripts.
 
 ## Usage
 
-1. **Clone the Repository and Navigate:**
+1. Clone the Repository and Navigate to it:
 
    ```shell
    git clone https://github.com/ricci2511/dot.git && cd dot
    ```
 
-2. **Review and Customize Dotfiles:**
+2. Review and Customize Dotfiles:
 
    - **.config Directory:**
      Add configuration files for software following the XDG Base Directory Specification (e.g., `nvim`, `tmux`) into the `.config` directory. These will be symlinked to `~/.config/`.
@@ -18,7 +20,7 @@ This repository contains my personal dotfiles and configurations for various too
      For files that belong in the root of the home directory (e.g., `.bashrc`, `.zshrc`), place them in the root of the repository. These will be symlinked to `~`.
 
 3. **Run the Install Script:**
-   Run the install script to symlink dotfiles. Be cautious, as existing dotfiles will be overwritten:
+   Run the script to symlink dotfiles. Be cautious, as existing dotfiles will be overwritten:
 
    ```shell
    # Use the -y flag to skip overwrite warnings
