@@ -25,7 +25,9 @@ alias grb="git rebase -i"
 alias gsa="git stash apply"
 
 # Utility to automatically create/add new dotfiles to `dot` and symlink to proper location
-alias dotadd="$HOME/dot/dotadd.sh"
+alias dotadd="$HOME/dot/utils/dotadd.sh"
+
+export LC_CTYPE=en_US.UTF-8
 
 # Cool prompt
 eval "$(starship init zsh)"

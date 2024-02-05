@@ -1,3 +1,7 @@
+# Otherwise wsl constantly displays "docker" as the context
+[container]
+disabled = true
+
 [aws]
 symbol = "  "
 

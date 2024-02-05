@@ -2,7 +2,7 @@
 
 # TODO: Document this script and mention in README
 
-DOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && cd .. && pwd)"
 
 # The first argument is the path to the dotfile being added and symlinked
 # Example: `./dotadd.sh ~/.zshrc` -> Creates and symlinks $DOT_DIR/.zshrc to $HOME/.zshrc

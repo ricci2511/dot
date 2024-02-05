@@ -29,7 +29,7 @@ It also serves as a flexible template for managing dotfiles using symlinks and s
 
 ## Additional Components
 
-#### `install_deps.sh`
+#### `install_packages.sh`
 
 This script installs the software packages associated with my dotfiles using brew and pacman package managers. Package names are derived from `packages_pacman.txt` and `packages_brew.txt` files. While it primarily supports my setup, you can easily adapt it to your needs. Add your desired package names to a text file and make slight modifications to the script for your preferred package manager.
 

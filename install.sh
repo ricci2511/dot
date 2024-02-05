@@ -26,7 +26,7 @@ create_symlink() {
 
 # Symlinks all dotfiles to proper location
 install_dotfiles() {
-	local exclude_pattern="^(LICENSE|\.git|\.gitignore|\.DS_Store|.*\.txt|.*\.sh)$"
+	local exclude_pattern="^(LICENSE|\.git|\.gitignore|\.DS_Store|.*\.txt|.*\.sh|.*\.md)$"
 
 	ls -A | grep -Ev "$exclude_pattern" | while IFS= read -r item; do
 		if [ -d "$item" ] && [ "$item" == ".config" ]; then
