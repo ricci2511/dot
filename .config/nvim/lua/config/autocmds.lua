@@ -9,3 +9,8 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.wo.conceallevel = 0
   end,
 })
+
+-- Set formatoptions to avoid auto comment on newline
+vim.api.nvim_create_autocmd("FileType", {
+  command = "set formatoptions-=cro",
+})
