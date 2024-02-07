@@ -1,0 +1,14 @@
+docker
+docker-compose
+fd
+fzf
+git
+go
+lazygit
+neovim
+node
+ripgrep
+starship
+stow
+tmux
+ttf-fira-code-nerd-fonts
