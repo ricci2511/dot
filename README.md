@@ -6,7 +6,7 @@
    git clone https://github.com/ricci2511/dot.git && cd dot
    ```
 
-2. Install with `stow`:
+2. Install with [`stow`](https://www.gnu.org/software/stow/):
 
    ```shell
    stow -t ~ .
