@@ -15,19 +15,21 @@ alias gs="git status"
 alias gl="git log"
 alias ga="git add"
 alias gc="git commit -m"
-alias gp="git push"
+alias gp="git push origin"
 alias gb="git branch"
 alias gbD="git branch -D"
-alias gc="git checkout"
-alias gcb="git checkout -b"
-alias gpl="git pull"
+alias gco="git checkout"
+alias gcob="git checkout -b"
+alias gpl="git pull origin"
 alias grb="git rebase -i"
 alias gsa="git stash apply"
+alias gre="git reset"
 
-# Utility to automatically create/add new dotfiles to `dot` and symlink to proper location
-alias dotadd="$HOME/dot/utils/dotadd.sh"
+alias cat="bat" # Cooler cat
 
+# Just in case
 export LC_CTYPE=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Cool prompt
 eval "$(starship init zsh)"

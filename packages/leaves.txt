@@ -1,6 +1,8 @@
+bat
 cmocka
 docker
 docker-compose
+exa
 fd
 ffmpeg
 font-fira-code-nerd-font
