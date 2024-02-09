@@ -3,7 +3,7 @@
 1. Clone the repo and navigate into it:
 
    ```shell
-   git clone https://github.com/ricci2511/dot.git && cd dot
+   git clone git@github.com:ricci2511/dot.git && cd dot
    ```
 
 2. Install with [`stow`](https://www.gnu.org/software/stow/):
@@ -14,14 +14,26 @@
 
 ## Packages install
 
+- MacOS
+
+```shell
+xargs brew install < packages/leaves.txt
+```
+
 - Arch Linux
 
 ```shell
 sudo pacman -S --needed - < packages/pacman.txt
 ```
 
-- MacOS
+## Applications setup
+
+### tmux
+
+- Install [tpm](https://github.com/tmux-plugins/tpm)
 
 ```shell
-xargs brew install < packages/leaves.txt
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
+
+- Install plugins with `prefix + I`
