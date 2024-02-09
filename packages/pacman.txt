@@ -1,7 +1,7 @@
 bat
 docker
 docker-compose
-exa
+eza
 fd
 fzf
 git

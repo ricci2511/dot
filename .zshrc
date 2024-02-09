@@ -10,6 +10,10 @@ export VI_MODE_ESC_INSERT="jk" && plug "zap-zsh/vim"
 autoload -Uz compinit
 compinit
 
+# Just in case
+export LC_CTYPE=en_US.UTF-8
+export LANG=en_US.UTF-8
+
 # Git aliases
 alias gs="git status"
 alias gl="git log"
@@ -25,11 +29,18 @@ alias grb="git rebase -i"
 alias gsa="git stash apply"
 alias gre="git reset"
 
-alias cat="bat" # Cooler cat
+# Nicer alternatives to common commands
+alias cat="bat"
+alias ls="eza -lg --icons --group-directories-first"
+alias la="eza -lag --icons --group-directories-first"
+alias lr="eza -lTg -L 2 --icons --group-directories-first" # Recurse 2 levels
+alias lR="eza -lTg --icons --group-directories-first" # Recurse until end (may be slow)
 
-# Just in case
-export LC_CTYPE=en_US.UTF-8
-export LANG=en_US.UTF-8
+# Faster navigation
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
 
 # Cool prompt
 eval "$(starship init zsh)"
