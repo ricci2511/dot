@@ -1,5 +1,5 @@
 return {
-  -- lsp servers not already included in LazyVim extras
+  -- Others are already handled by lazyvim.plugins.extras.lang...
   {
     "neovim/nvim-lspconfig",
     opts = {

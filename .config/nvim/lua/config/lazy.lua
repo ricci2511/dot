@@ -24,7 +24,7 @@ require("lazy").setup({
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
   ui = {
-    border = "rounded",         -- Rounded borders for floating windows
+    border = "rounded", -- Rounded borders for floating windows
   },
   checker = { enabled = true }, -- automatically check for plugin updates
   performance = {
