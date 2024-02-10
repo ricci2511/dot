@@ -43,6 +43,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
+alias fnv="fd --type f --hidden --exclude .git | fzf | xargs nvim"
 alias cl="clear"
 
 # Cool prompt
