@@ -3,11 +3,11 @@ local wezterm = require("wezterm")
 local is_windows = wezterm.target_triple == "x86_64-pc-windows-msvc"
 
 return {
-	color_scheme = "Dracula",
+	color_scheme = "Catppuccin Mocha",
 	font = wezterm.font("FiraCode Nerd Font", { weight = 400 }),
-	font_size = 14.0,
+	font_size = 15.0,
 	window_background_opacity = 0.90,
-	macos_window_background_blur = 30,
+	macos_window_background_blur = 25,
 	enable_tab_bar = false,
 	default_cursor_style = "BlinkingUnderline",
 	cursor_blink_rate = 600,
