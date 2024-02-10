@@ -43,8 +43,10 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
-alias fnv="fd --type f --hidden --exclude .git | fzf | xargs nvim"
 alias cl="clear"
+
+# Nvim telescope like search right in the terminal
+alias fnv="fd --type f --hidden --exclude .git | fzf-tmux -p --reverse | xargs nvim"
 
 # Cool prompt
 eval "$(starship init zsh)"

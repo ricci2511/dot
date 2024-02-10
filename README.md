@@ -28,6 +28,14 @@ sudo pacman -S --needed - < packages/pacman.txt
 
 ## Applications setup
 
+### zsh
+
+- Install [zap](https://github.com/zap-zsh/zap) plugin manager:
+
+```shell
+git clone https://github.com/zap-zsh/zap.git ~/.local/share/zap/
+```
+
 ### tmux
 
 - Install [tpm](https://github.com/tmux-plugins/tpm)
