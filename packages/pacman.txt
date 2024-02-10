@@ -8,9 +8,10 @@ git
 go
 lazygit
 neovim
-node
+nodejs
 ripgrep
 starship
 stow
 tmux
-ttf-fira-code-nerd-fonts
+ttf-firacode-nerd
+zsh
