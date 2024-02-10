@@ -43,6 +43,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
+alias dot="~/dot"
 alias cl="clear"
 
 # Nvim telescope like search right in the terminal
