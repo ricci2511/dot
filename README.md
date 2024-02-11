@@ -30,6 +30,12 @@ sudo pacman -S --needed - < packages/pacman.txt
 
 ### zsh
 
+- Make zsh the default shell, if it isn't already:
+
+```shell
+chsh -s $(which zsh)
+```
+
 - Install [zap](https://github.com/zap-zsh/zap) plugin manager:
 
 ```shell
