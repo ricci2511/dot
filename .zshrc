@@ -10,11 +10,6 @@ export VI_MODE_ESC_INSERT="jk" && plug "zap-zsh/vim"
 autoload -Uz compinit
 compinit
 
-# Just in case
-export LC_CTYPE=en_US.UTF-8
-export LANG=en_US.UTF-8
-export EDITOR=nvim
-
 # Git aliases
 alias gs="git status"
 alias gl="git log"

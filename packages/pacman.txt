@@ -1,4 +1,5 @@
 bat
+bob
 docker
 docker-compose
 eza
