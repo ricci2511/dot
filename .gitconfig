@@ -1,0 +1,15 @@
+[user]
+	email = ricardo.christmann@protonmail.com
+	name = ricci2511
+[core]
+	editor = nvim
+[pull]
+	rebase = true
+[merge]
+  conflictStyle = zdiff3
+[diff]
+	algorithm = histogram
+[push]
+	autoSetupRemote = true
+[branch]
+	sort = -committerdate
