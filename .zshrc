@@ -38,11 +38,12 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
-alias dot="~/dot"
 alias cl="clear"
+alias dot="~/dot"
+alias nvup="~/dot/scripts/nvim.sh" # Updates/installs neovim nightly from source
 
 # Nvim telescope like search right in the terminal
-alias fnv="fd --type f --hidden --exclude .git | fzf-tmux -p --reverse | xargs nvim"
+alias nvf="fd --type f --hidden --exclude .git | fzf-tmux -p --reverse | xargs nvim"
 
 # Cool prompt
 eval "$(starship init zsh)"

@@ -1,5 +1,5 @@
 bat
-bob
+cmake
 cmocka
 docker
 docker-compose
@@ -8,12 +8,14 @@ fd
 ffmpeg
 font-fira-code-nerd-font
 fzf
+gettext
 git
 go
 golang-migrate
 lazygit
 mysql-client
 neovim
+ninja
 nmap
 node
 openssl@1.1

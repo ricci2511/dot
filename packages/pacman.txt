@@ -1,5 +1,6 @@
 bat
-bob
+cmake
+curl
 docker
 docker-compose
 eza
@@ -9,12 +10,15 @@ git
 go
 lazygit
 less
-neovim
+ninja
 nodejs
+npm
 python
 ripgrep
 starship
 stow
 tmux
 ttf-firacode-nerd
+unzip
+xclip
 zsh
