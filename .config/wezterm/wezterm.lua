@@ -6,7 +6,7 @@ return {
 	color_scheme = "Catppuccin Mocha",
 	font = wezterm.font("FiraCode Nerd Font", { weight = 400 }),
 	-- Font size in windows looks bigger to me
-	font_size = is_windows and 13.0 or 15.0,
+	font_size = is_windows and 13.0 or 16.0,
 	window_background_opacity = 0.92,
 	macos_window_background_blur = 30,
 	enable_tab_bar = false,
