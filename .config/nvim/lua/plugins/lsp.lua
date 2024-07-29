@@ -2,8 +2,9 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
+      inlay_hints = { enabled = false }, -- Nice to have, but disable by default
+
       servers = {
-        svelte = {}, -- Not included in lazyvim.plugins.extras.lang
         tsserver = {
           settings = {
             -- See: https://github.com/typescript-language-server/typescript-language-server?tab=readme-ov-file#inlay-hints-textdocumentinlayhint
@@ -33,6 +34,7 @@ return {
             },
           },
         },
+
         gopls = {
           settings = {
             -- See: https://github.com/golang/tools/blob/master/gopls/doc/inlayHints.md
@@ -47,6 +49,7 @@ return {
             },
           },
         },
+
         lua_ls = {
           settings = {
             Lua = {
