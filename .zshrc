@@ -26,6 +26,7 @@ alias gsa="git stash apply"
 alias gre="git reset"
 
 # Nicer alternatives to common commands
+alias v="nvim"
 alias cat="bat"
 alias ls="eza -l --icons --group-directories-first --git"
 alias la="eza -la --icons --group-directories-first --git"
