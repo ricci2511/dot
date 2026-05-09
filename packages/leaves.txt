@@ -19,6 +19,7 @@ ninja
 nmap
 node
 openssl@1.1
+pyenv
 ripgrep
 starship
 stow
