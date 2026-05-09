@@ -46,6 +46,11 @@ alias nvup="~/dot/scripts/nvim.sh" # Updates/installs neovim nightly from source
 # Nvim telescope like search right in the terminal
 alias nvf="fd --type f --hidden --exclude .git | fzf-tmux -p --reverse | xargs nvim"
 
+# Pyenv config
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+
 # Cool prompt
 eval "$(starship init zsh)"
 
